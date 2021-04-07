@@ -18,7 +18,7 @@ def search(request):
 
         searchField = request.POST['search']
 
-        results = requests.get('https://www.googleapis.com/books/v1/volumes?q='+searchField)
+        results = requests.get('https://www.googleapis.com/books/v1/volumes?printType=books&maxResults=40&projection=lite&q=intitle:'+searchField)
         
         results = json.loads(results.content)
         finalResults = list()

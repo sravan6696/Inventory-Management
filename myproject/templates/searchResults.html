@@ -1,22 +1,31 @@
 {% extends 'search.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/searchResults.css' %}">
+{% endblock %}
 
 {% block result %}
-    <table class="table" border="1">
+    <table class="table table-fixed">
         <thead class="thead-inverse">
             <tr>
-                <th>Book ID</th>
-                <th>Book Name</th>
-                <th>Authors</th>
-                <th>Inventory Count</th>
+                <th class="col-xs-3">Book ID</th>
+                <th class="col-xs-3">Book Name</th>
+                <th class="col-xs-3">Authors</th>
+                <th class="col-xs-3">Inventory Count</th>
+                <th> Add to Inventory </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             {% for result in results %}
             <tr>
-                <td>{{ result.id }}</td>
-                <td>{{ result.name }}</td>
-                <td>{{ result.authorString }}</td>
-                <td> 0 </td>
+                <td class="col-xs-3">{{ result.id }}</td>
+                <td class="col-xs-3">{{ result.name }}</td>
+                <td class="col-xs-3">{{ result.authorString }}</td>
+                <td class="col-xs-3"> 0 </td>
+                <td> 
+                    <input id={{result.id}} type="checkbox">     
+                </td>
             </tr>
             {% endfor %}
         </tbody>
