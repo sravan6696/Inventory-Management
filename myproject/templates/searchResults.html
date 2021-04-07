@@ -1,0 +1,24 @@
+{% extends 'search.html' %}
+
+{% block result %}
+    <table class="table" border="1">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Authors</th>
+                <th>Inventory Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.id }}</td>
+                <td>{{ result.name }}</td>
+                <td>{{ result.authorString }}</td>
+                <td> 0 </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

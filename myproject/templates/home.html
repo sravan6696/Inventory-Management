@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Books</li>
+{% endblock %}
+
+{% block content %}
+    <table class="table" border="1">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Authors</th>
+                <th>Inventory Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.book_id }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

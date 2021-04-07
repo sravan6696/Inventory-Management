@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Books</li>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_search">Search for a book</label>
+        <input type="text" class="form-control" id="id_subject" name="search">
+    </div>
+    <button type="submit" class="btn btn-success">Post</button>
+
+    {% block result %}
+    {% endblock %}
+
+</form>
+
+{% endblock %}
